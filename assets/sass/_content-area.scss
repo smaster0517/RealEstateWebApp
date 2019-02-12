@@ -1,0 +1,311 @@
+#content-area{
+  overflow: auto;
+  width: 100%;
+  min-height: 100vh
+
+}
+#filter {
+  background: $grey;
+  width: 30%;
+  max-width: 300px;
+  display: inline-block;
+  float: left;
+
+  .inside {
+    padding: 20px;
+    max-width: 300px;
+  }
+  h4{
+    font-size: .9rem;
+
+    margin-bottom: 25px;
+    font-weight: 500px;
+    text-transform: uppercase;
+  }
+  select {
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1b1b1b;
+    display: block;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+  .filters {
+    .title{
+      font-size: .9rem;
+      display: block;
+      margin-bottom: 1rem;
+      color: $darkgrey;
+
+    }
+
+    input[type="text"] {
+      border-radius: 5px;
+      font-size: 1rem;
+      padding: .4rem;
+      width: 45%;
+      display: inline-block;
+      margin-right: 2.5%;
+      margin-bottom: 1rem;
+    }
+    &.additionalAmenities{
+      label{
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+
+        input[type="checkbox"]{
+          float: right;
+        }
+      }
+    }
+  }
+}
+
+#listings{
+  width: 70%;
+  float: left;
+  display: inline-block;
+  padding: 15px;
+  background: $offwhite;
+
+  .search-area{
+    input[type="text"]{
+      width: 70%;
+      background: transparent;
+      font-size: 2rem;
+      border: none;
+      border-bottom: 1px solid $darkgrey;
+      margin-bottom: 20px;
+      font-weight: 100;
+      color: $lightgrey;
+    }
+  }
+  .sortby-area{
+    margin-bottom: 20px;
+    .results{
+      color: $darkgrey;
+      font-size: .8rem;
+      display: inline-block;
+    }
+    .sort-options{
+      float: right;
+
+        select {font-size: 0.9rem;
+        font-weight: 300;
+        border: 1px solid $lightgrey;
+        background: transparent;
+        padding: 20px;
+        display: inline-block;
+        margin-right: 15px;
+        vertical-align: top;
+      }
+      .view {
+        display: inline-block;
+
+        .fa {
+          font-size: 1.5rem;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+  .listings-results{
+    margin-bottom: 60px;
+
+    .listing{
+      background: #fff;
+      border-radius: 5px;
+      -webkit-box-shadow: 0px 9px 54px -4px rgba(224,224,224,1);
+      -moz-box-shadow: 0px 9px 54px -4px rgba(224,224,224,1);
+      box-shadow: 0px 9px 54px -4px rgba(224,224,224,1);
+    }
+    .listing-img{
+      color: #fff;
+      padding: 15px;
+      position: relative;
+      background:
+      url(http://decorationchannel.com/wp-content/uploads/2011/12/modern-house-with-glass-wall.jpg)
+      no-repeat center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      min-height: 200px;
+      -webkit-border-top-left-radius: 5px;
+      -webkit-border-top-right-radius: 5px;
+      -moz-border-radius-topleft: 5px;
+      -moz-border-radius-topright: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+
+      &:hover{
+        .details{
+          opacity: 1;
+        }
+        .address{
+          opacity: 0;
+        }
+      }
+    .address {
+      font-size: 1rem;
+      text-transform: capitalize;
+      position: absolute;
+      bottom: 20px;
+      opacity: 1;
+      transition: all .4s ease-in-out;
+      text-shadow: 0 1px 4px rgba(91, 91, 91, 1);
+      }
+
+      .details{
+        transition: all .4s ease-in-out;
+        opacity: 0;
+        padding: 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        -webkit-border-top-left-radius: 5px;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7b2ad8+-1,7220ca+-1,ae7ee8+0,7220ca+0,6c2ee8+0,c92bdb+100 */
+        background: rgba(123,42,216,.8); /* Old browsers */
+        background: -moz-linear-gradient(-45deg, rgba(123,42,216,.8) -1%, rgba(114,32,202,.8) -1%, rgba(174,126,232,.8) 0%, rgba(114,32,202,.8) 0%, rgba(108,46,232,.8) 0%, rgba(201,43,219,.8) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, rgba(123,42,216,.8) -1%,rgba(114,32,202,.8) -1%,rgba(174,126,232,.8) 0%,rgba(114,32,202,.8) 0%,rgba(108,46,232,.8) 0%,rgba(201,43,219,.8) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, rgba(123,42,216,.8) -1%,rgba(114,32,202,.8) -1%,rgba(174,126,232,.8) 0%,rgba(114,32,202,.8) 0%,rgba(108,46,232,.8) 0%,rgba(201,43,219,.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7b2ad8', endColorstr='#c92bdb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+      .user-img{
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        border: 2px solid white;
+        display: inline-block;
+        background:
+        url(https://secure.gravatar.com/avatar/b10f7ddbf9b8be9e3c46c302bb20101d?s=400&d=mm&r=g)
+        no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+      .user-details{
+        vertical-align: top;
+        display: inline-block;
+
+        .user-name{
+          font-size: .8rem;
+          font-weight: 300;
+          display: block;
+          color: rgba(255,255,255,1);
+          margin-top: 3px;
+          margin-bottom: 5px;
+        }
+        .post-date{
+          font-size: .9rem;
+          display: block;
+          color: rgba(255,255,255,.7);
+        }
+      }
+      .listing-details{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        .far{
+          display: inline-block;
+          font-size: 20px;
+          margin-right: 15px;
+        }
+        .fa {
+          display: inline-block;
+          font-size: 20px;
+          margin-right: 15px;
+        }
+        span {
+          font-weight: 300;
+          font-size: 0.8rem;
+          display: inline-block;
+          vertical-align: top;
+          position: relative;
+          top: 3px;
+          }
+        .sqft {
+          margin-bottom: 10px;
+          }
+        }
+      }
+    }
+    .bottom-info{
+      padding: 20px 15px;
+      .price{
+        font-size: 1rem;
+        display: block;
+      }
+      .location{
+        font-size: 1rem;
+        display: block;
+        color: $lightgrey;
+      }
+    }
+  }
+}
+.view-btn{
+  background: black;
+  padding: 8px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 150px;
+  transition: background .3s ease-in-out;
+
+  &:hover{
+    background: $pink;
+    cursor: pointer;
+  }
+
+}
+#pagination{
+  text-align: center;
+
+  .pages{
+    margin: 0 auto;
+    display: inline-block;
+    background: white;
+    -webkit-box-shadow: 0px 9px 54px -4px rgba(224,224,224,1);
+    -moz-box-shadow: 0px 9px 54px -4px rgba(224,224,224,1);
+    box-shadow: 0px 9px 54px -4px rgba(224,224,224,1);
+
+
+    li {
+      padding: 20px 30px;
+      display: inline-block;
+
+      &.active,
+      &:hover{
+        color: white;
+        font-weight: 700;
+        background: $pink;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.col-md-3{
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 15px;
+}
+
+.col-md-9{
+  width: 75%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 15px;
+}
