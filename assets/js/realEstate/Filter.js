@@ -6,18 +6,21 @@ export default class Filter extends Component {
     this.state = {
       name: 'Alice'
     }
+    this.cities = this.cities.bind(this)
   }
   componentWillMount(){
     this.props.populateAction()
   }
   cities() {
-    var{ populateFormsData } = this.props.globalState
-
-    return populateFormsData.map((item) => {
-      return(
-        <option value="item.">{item}</option>
+    if(this.props.globalState.populateFormsData.cities !=undefined) {
+    var{ cities } = this.props.globalState.populateFormsData
+    console.log(cities)
+     return cities.map((item) => {
+       return(
+         <option key={item} value="item.">{item}</option>
       )
     })
+  }
   }
 homeStyles() {
 
@@ -34,6 +37,7 @@ rooms(){
     <label htmlFor="city">City</label>
     <select name="city" className="filters city" onChange={this.props.change}>
       <option value="All">All</option>
+        {this.cities()}
       <option value="Portland">Portland</option>
       <option value="HappyValley">Happy Valley</option>
       <option value="Beaverton">Beaverton</option>
@@ -46,8 +50,9 @@ rooms(){
       <option value="West_Linn">West Linn</option>
     </select>
     <label htmlFor="homeStyle">Home Style</label>
+
     <select name="homeStyle" className="filters homeStyle" onChange={this.props.change}>
-      <option value="All">All</option>
+      <option value="All">All Homes</option>
       <option value="Ranch">Ranch</option>
       <option value="Cape_Cod">Cape Cod</option>
       <option value="Bungalo">Bungalo</option>
