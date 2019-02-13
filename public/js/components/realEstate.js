@@ -35,6 +35,10 @@ var Filter = function (_Component) {
     _this.state = {
       name: 'Alice'
     };
+    _this.cities = _this.cities.bind(_this);
+    _this.homeStyles = _this.homeStyles.bind(_this);
+    _this.rooms = _this.rooms.bind(_this);
+    _this.baths = _this.baths.bind(_this);
     return _this;
   }
 
@@ -46,23 +50,68 @@ var Filter = function (_Component) {
   }, {
     key: 'cities',
     value: function cities() {
-      var populateFormsData = this.props.globalState.populateFormsData;
+      if (this.props.globalState.populateFormsData.cities != undefined) {
+        var cities = this.props.globalState.populateFormsData.cities;
 
-
-      return populateFormsData.map(function (item) {
-        return _react2.default.createElement(
-          'option',
-          { value: 'item.' },
-          item
-        );
-      });
+        console.log(cities);
+        return cities.map(function (item) {
+          return _react2.default.createElement(
+            'option',
+            { key: item, value: 'item.' },
+            item
+          );
+        });
+      }
     }
   }, {
     key: 'homeStyles',
-    value: function homeStyles() {}
+    value: function homeStyles() {
+      if (this.props.globalState.populateFormsData.homeStyles != undefined) {
+        var homeStyles = this.props.globalState.populateFormsData.homeStyles;
+
+        console.log(homeStyles);
+        return homeStyles.map(function (item) {
+          return _react2.default.createElement(
+            'option',
+            { key: item, value: 'item.' },
+            item
+          );
+        });
+      }
+    }
   }, {
     key: 'rooms',
-    value: function rooms() {}
+    value: function rooms() {
+      if (this.props.globalState.populateFormsData.rooms != undefined) {
+        var rooms = this.props.globalState.populateFormsData.rooms;
+
+        console.log(rooms);
+        return rooms.map(function (item) {
+          return _react2.default.createElement(
+            'option',
+            { key: item, value: 'item.' },
+            item,
+            '+ BR'
+          );
+        });
+      }
+    }
+  }, {
+    key: 'baths',
+    value: function baths() {
+      if (this.props.globalState.populateFormsData.baths != undefined) {
+        var baths = this.props.globalState.populateFormsData.baths;
+
+        console.log(baths);
+        return baths.map(function (item) {
+          return _react2.default.createElement(
+            'option',
+            { key: item, value: 'item.' },
+            item
+          );
+        });
+      }
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -90,6 +139,7 @@ var Filter = function (_Component) {
               { value: 'All' },
               'All'
             ),
+            this.cities(),
             _react2.default.createElement(
               'option',
               { value: 'Portland' },
@@ -152,8 +202,9 @@ var Filter = function (_Component) {
             _react2.default.createElement(
               'option',
               { value: 'All' },
-              'All'
+              'All Homes'
             ),
+            this.homeStyles(),
             _react2.default.createElement(
               'option',
               { value: 'Ranch' },
@@ -218,31 +269,7 @@ var Filter = function (_Component) {
           _react2.default.createElement(
             'select',
             { name: 'bedrooms', className: 'filters bedrooms', onChange: this.props.change },
-            _react2.default.createElement(
-              'option',
-              { value: '0' },
-              '0 BR'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '1' },
-              '1 BR'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '2' },
-              '2 BR'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '3' },
-              '3 BR'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '4' },
-              '4 BR'
-            )
+            this.rooms()
           ),
           _react2.default.createElement(
             'label',
@@ -252,31 +279,7 @@ var Filter = function (_Component) {
           _react2.default.createElement(
             'select',
             { name: 'bathrooms', className: 'filters bathrooms', onChange: this.props.change },
-            _react2.default.createElement(
-              'option',
-              { value: '1' },
-              '1 bathroom'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '1.5' },
-              '1.5 bathrooms'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '2' },
-              '2 bathrooms'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '2.5' },
-              '2.5 bathrooms'
-            ),
-            _react2.default.createElement(
-              'option',
-              { value: '3' },
-              '3 bathrooms'
-            )
+            this.baths()
           ),
           _react2.default.createElement(
             'div',

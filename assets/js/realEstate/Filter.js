@@ -7,6 +7,9 @@ export default class Filter extends Component {
       name: 'Alice'
     }
     this.cities = this.cities.bind(this)
+    this.homeStyles = this.homeStyles.bind(this)
+    this.rooms = this.rooms.bind(this)
+    this.baths = this.baths.bind(this)
   }
   componentWillMount(){
     this.props.populateAction()
@@ -23,10 +26,37 @@ export default class Filter extends Component {
   }
   }
 homeStyles() {
-
+  if(this.props.globalState.populateFormsData.homeStyles !=undefined) {
+  var{ homeStyles } = this.props.globalState.populateFormsData
+  console.log(homeStyles)
+   return homeStyles.map((item) => {
+     return(
+       <option key={item} value="item.">{item}</option>
+    )
+  })
+}
 }
 rooms(){
-
+  if(this.props.globalState.populateFormsData.rooms !=undefined) {
+  var{ rooms } = this.props.globalState.populateFormsData
+  console.log(rooms)
+   return rooms.map((item) => {
+     return(
+       <option key={item} value="item.">{item}+ BR</option>
+    )
+  })
+  }
+}
+baths(){
+  if(this.props.globalState.populateFormsData.baths !=undefined) {
+  var{ baths } = this.props.globalState.populateFormsData
+  console.log(baths)
+   return baths.map((item) => {
+     return(
+       <option key={item} value="item.">{item}</option>
+    )
+  })
+  }
 }
 
 
@@ -53,6 +83,7 @@ rooms(){
 
     <select name="homeStyle" className="filters homeStyle" onChange={this.props.change}>
       <option value="All">All Homes</option>
+      {this.homeStyles()}
       <option value="Ranch">Ranch</option>
       <option value="Cape_Cod">Cape Cod</option>
       <option value="Bungalo">Bungalo</option>
@@ -67,19 +98,11 @@ rooms(){
     </select>
     <label htmlFor="bedrooms">Bedrooms</label>
     <select name="bedrooms" className="filters bedrooms" onChange={this.props.change}>
-      <option value="0">0 BR</option>
-      <option value="1">1 BR</option>
-      <option value="2">2 BR</option>
-      <option value="3">3 BR</option>
-      <option value="4">4 BR</option>
+      {this.rooms()}
     </select>
     <label htmlFor="bathrooms">Baths</label>
     <select name="bathrooms" className="filters bathrooms" onChange={this.props.change}>
-      <option value="1">1 bathroom</option>
-      <option value="1.5">1.5 bathrooms</option>
-      <option value="2">2 bathrooms</option>
-      <option value="2.5">2.5 bathrooms</option>
-      <option value="3">3 bathrooms</option>
+      {this.baths()}
     </select>
     <div className="filters price">
       <span className="title">Price</span>
