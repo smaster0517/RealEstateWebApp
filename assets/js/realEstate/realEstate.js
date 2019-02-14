@@ -28,11 +28,21 @@ class App extends Component {
       bonus_space: false,
       filteredData: listingsData,
       populateFormsData: '',
+      sortby: 'price-dsc'
     }
 
     this.change = this.change.bind(this)
     this.filteredData = this.filteredData.bind(this)
     this.populateForms = this.populateForms.bind(this)
+  }
+  componentWillMount(){
+
+    var listingsData = this.state.listingsData.sort((a, b) => {
+      return a.price - b.price
+    })
+    this.setState({
+      listingsData
+    })
   }
   change(event){
     var name = event.target.name
@@ -50,7 +60,7 @@ class App extends Component {
 
   filteredData(){
     var newData = this.state.listingsData.filter((item) => {
-      return item.price >= this.state.min_price && item.price <= this.state.max_price && item.sqft >= this.state.min_sqft && item.sqft <= this.state.max_sqft && item.bedrooms <= this.state.bedrooms
+      return item.price >= this.state.min_price && item.price <= this.state.max_price && item.sqft >= this.state.min_sqft && item.sqft <= this.state.max_sqft && item.bedrooms <= this.state.bedrooms && mitem.bathrooms <= this.state.bathrooms
     })
     if(this.state.city != "All") {
       newData = newData.filter((item) => {
@@ -62,6 +72,15 @@ class App extends Component {
         return item.homeStyle == this.state.homeStyle
       })
     }
+    if(this.state.sortby == 'price-dsc') {newData = newData.sort((a,b) => {
+      return a.price - b.price
+      })
+    }
+    if(this.state.sortby == 'price-asc') {newData = newData.sort((a,b) => {
+      return b.price - a.price
+      })
+    }
+
     this.setState({
       filteredData: newData
     })
@@ -74,27 +93,35 @@ class App extends Component {
     cities = new Set(cities)
     cities = [...cities]
 
-    //homeStyle//
+    cities = cities.sort()
+
+    //homeStyle
     var homeStyles = this.state.listingsData.map((item) => {
       return item.homeStyle
     })
     homeStyles = new Set(homeStyles)
     homeStyles = [...homeStyles]
 
-    //bedrooms//
+    homeStyles = homeStyles.sort()
+
+    //bedrooms
     var rooms = this.state.listingsData.map((item) => {
       return item.bedrooms
     })
     rooms = new Set(rooms)
     rooms = [...rooms]
 
-    //bathrooms//
+    rooms = rooms.sort()
+
+    //bathrooms
 
     var baths = this.state.listingsData.map((item) => {
       return item.bathrooms
     })
     baths = new Set(baths)
     baths = [...baths]
+
+    baths = baths.sort()
 
     this.setState({
       populateFormsData: {
@@ -114,7 +141,7 @@ class App extends Component {
       <Header />
       <section id="content-area">
       <Filter change={this.change} globalState={this.state} populateAction={this.populateForms}/>
-      <Listings listingsData={this.state.filteredData}/>
+      <Listings listingsData={this.state.filteredData} change={this.change}/>
       </section>
       </div>)
   }

@@ -31,7 +31,7 @@ homeStyles() {
   console.log(homeStyles)
    return homeStyles.map((item) => {
      return(
-       <option key={item} value="item.">{item}</option>
+       <option key={item} value="item">{item}</option>
     )
   })
 }
@@ -42,7 +42,7 @@ rooms(){
   console.log(rooms)
    return rooms.map((item) => {
      return(
-       <option key={item} value="item.">{item}+ BR</option>
+       <option key={item} value="item">{item}+ BR</option>
     )
   })
   }
@@ -53,7 +53,7 @@ baths(){
   console.log(baths)
    return baths.map((item) => {
      return(
-       <option key={item} value="item.">{item}</option>
+       <option key={item} value="item">{item}</option>
     )
   })
   }
@@ -68,7 +68,7 @@ baths(){
     <select name="city" className="filters city" onChange={this.props.change}>
       <option value="All">All</option>
         {this.cities()}
-      <option value="Portland">Portland</option>
+      
       <option value="HappyValley">Happy Valley</option>
       <option value="Beaverton">Beaverton</option>
       <option value="Gresham">Gresham</option>
