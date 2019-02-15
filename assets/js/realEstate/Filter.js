@@ -68,7 +68,6 @@ baths(){
     <select name="city" className="filters city" onChange={this.props.change}>
       <option value="All">All</option>
         {this.cities()}
-      
       <option value="HappyValley">Happy Valley</option>
       <option value="Beaverton">Beaverton</option>
       <option value="Gresham">Gresham</option>
@@ -100,7 +99,7 @@ baths(){
     <select name="bedrooms" className="filters bedrooms" onChange={this.props.change}>
       {this.rooms()}
     </select>
-    <label htmlFor="bathrooms">Baths</label>
+    <label htmlFor="bathrooms">Bathrooms</label>
     <select name="bathrooms" className="filters bathrooms" onChange={this.props.change}>
       {this.baths()}
     </select>

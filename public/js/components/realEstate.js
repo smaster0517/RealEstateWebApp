@@ -269,7 +269,7 @@ var Filter = function (_Component) {
           _react2.default.createElement(
             'label',
             { htmlFor: 'bathrooms' },
-            'Baths'
+            'Bathrooms'
           ),
           _react2.default.createElement(
             'select',
@@ -638,7 +638,7 @@ var Listings = function (_Component) {
         _react2.default.createElement(
           'section',
           { className: 'search-area' },
-          _react2.default.createElement('input', { type: 'text', name: 'search' })
+          _react2.default.createElement('input', { type: 'text', name: 'search', onChange: this.props.change })
         ),
         _react2.default.createElement(
           'section',
@@ -646,14 +646,15 @@ var Listings = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'results' },
-            '300 results found'
+            this.props.globalState.filteredData.length,
+            ' results found'
           ),
           _react2.default.createElement(
             'div',
             { className: 'sort-options' },
             _react2.default.createElement(
               'select',
-              { name: 'sortby', className: 'sortby', onchange: this.props.change },
+              { name: 'sortby', className: 'sortby', onChange: this.props.change },
               _react2.default.createElement(
                 'option',
                 { value: 'price-asc' },
@@ -743,7 +744,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var listingsData = [{
   address: '7654 Shoene Rd',
-  city: 'Portland',
+  city: 'HappyValley',
   state: 'OR',
   bedrooms: '1',
   price: '565,000',
@@ -755,7 +756,7 @@ var listingsData = [{
   image: 'https://lh3.googleusercontent.com/p/AF1QipOFNLWTBCfAU6cYTJBVln9Eaq4lTAuSRBBw6G4g=s1600-w300-h300'
 }, {
   address: '4762 SW Floure Ave',
-  city: 'Portland',
+  city: 'Beaverton',
   state: 'OR',
   bedrooms: '2',
   price: '278,000',
@@ -767,7 +768,7 @@ var listingsData = [{
   image: 'https://i1.wp.com/pdx-realestate.com/wp-content/uploads/2018/11/18311080-6-s.jpg?fit=320%2C240'
 }, {
   address: '2752 Krentz Place',
-  city: 'Portland',
+  city: 'Gresham',
   state: 'OR',
   bedrooms: '3',
   price: '464,000',
@@ -779,7 +780,7 @@ var listingsData = [{
   image: 'https://i2.wp.com/pdx-realestate.com/wp-content/uploads/2018/06/18588137-1-s.jpg?fit=320%2C240'
 }, {
   address: '92659 Canby Ct.',
-  city: 'Portland',
+  city: 'Troutdale',
   state: 'OR',
   bedrooms: '4',
   price: '198,000',
@@ -791,7 +792,7 @@ var listingsData = [{
   image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuZkPXJ7u3Vf5lVN9TCLQ7PyFoIEFUFDSyWdZtvMetDauY6lp4'
 }, {
   address: '4472 39th St.',
-  city: 'Portland',
+  city: 'Hillsboro',
   state: 'OR',
   bedrooms: '3',
   price: '385,000',
@@ -815,7 +816,7 @@ var listingsData = [{
   image: 'https://i.pinimg.com/236x/6d/ed/d0/6dedd01b11f1abd365fc70d1967d6d0e--take-that-condos.jpg'
 }, {
   address: '1976 NE Hollywood Ct.',
-  city: 'Portland',
+  city: 'Aloha',
   state: 'OR',
   bedrooms: '1',
   price: '249,000',
@@ -827,7 +828,7 @@ var listingsData = [{
   image: 'https://images2.loopnet.com/i2/i6K6CZ69lDPqpY8Af5QNJTkHG4jflW2p_O-nyRf8ppY/106/image.jpg'
 }, {
   address: '9888 SE Tibbets Circle',
-  city: 'Portland',
+  city: 'Lake_Oswego',
   state: 'OR',
   bedrooms: '2',
   price: '799,000',
@@ -839,7 +840,7 @@ var listingsData = [{
   image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu6IfvvmwfGUwlGyOtFGPhiYKSPhDjheRQIMH-T57kdySETHkG'
 }, {
   address: '4444 Lucky Drive',
-  city: 'Portland',
+  city: 'West_Linn',
   state: 'OR',
   bedrooms: '3',
   price: '489,900',
@@ -851,7 +852,7 @@ var listingsData = [{
   image: 'https://ap.rdcpix.com/1329768741/4fe4d9493292d03ff1f66810cd900e48l-m0xd-w480_h480_q80.jpg'
 }, {
   address: '12700 S Hills Ave.',
-  city: 'Portland',
+  city: 'Oregon City',
   state: 'OR',
   bedrooms: '4',
   price: '398,000',
@@ -875,7 +876,7 @@ var listingsData = [{
   image: 'https://scontent.cdninstagram.com/vp/231cea726b2b966224505db040666d19/5CCD10E6/t51.2885-15/e35/s320x320/38734760_1895338204102931_3525140759479058432_n.jpg?_nc_ht=scontent.cdninstagram.com'
 }, {
   address: '43021 Porter St.',
-  city: 'Portland',
+  city: 'Beaverton',
   state: 'OR',
   bedrooms: '2',
   price: '565,000',
@@ -962,7 +963,9 @@ var App = function (_Component) {
       bonus_space: false,
       filteredData: _listingsData2.default,
       populateFormsData: '',
-      sortby: 'price-dsc'
+      sortby: 'price-dsc',
+      search: ''
+
     };
 
     _this.change = _this.change.bind(_this);
@@ -1002,7 +1005,7 @@ var App = function (_Component) {
       var _this3 = this;
 
       var newData = this.state.listingsData.filter(function (item) {
-        return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.sqft >= _this3.state.min_sqft && item.sqft <= _this3.state.max_sqft && item.bedrooms <= _this3.state.bedrooms && mitem.bathrooms <= _this3.state.bathrooms;
+        return item.price >= _this3.state.min_price && item.price <= _this3.state.max_price && item.sqft >= _this3.state.min_sqft && item.sqft <= _this3.state.max_sqft && item.bedrooms <= _this3.state.bedrooms && item.bathrooms <= _this3.state.bathrooms;
       });
       if (this.state.city != "All") {
         newData = newData.filter(function (item) {
@@ -1024,7 +1027,25 @@ var App = function (_Component) {
           return b.price - a.price;
         });
       }
+      if (this.state.search != '') {
+        newData = newData.filter(function (item) {
+          var city = item.city.toLowerCase();
+          var searchText = _this3.state.search.toLowerCase();
+          var n = city.match(searchText);
 
+          if (n != null) {
+            return true;
+          }
+        });
+      }
+
+      if (this.state.search != '') {
+        newData = newData.filter(function (item) {
+          var city = item.city.toLowerCase();
+          var searchText = _this3.state.search.toLowerCase();
+          var n = city.search(searchText);
+        });
+      }
       this.setState({
         filteredData: newData
       });

@@ -28,7 +28,9 @@ class App extends Component {
       bonus_space: false,
       filteredData: listingsData,
       populateFormsData: '',
-      sortby: 'price-dsc'
+      sortby: 'price-dsc',
+      search:''
+
     }
 
     this.change = this.change.bind(this)
@@ -60,7 +62,7 @@ class App extends Component {
 
   filteredData(){
     var newData = this.state.listingsData.filter((item) => {
-      return item.price >= this.state.min_price && item.price <= this.state.max_price && item.sqft >= this.state.min_sqft && item.sqft <= this.state.max_sqft && item.bedrooms <= this.state.bedrooms && mitem.bathrooms <= this.state.bathrooms
+      return item.price >= this.state.min_price && item.price <= this.state.max_price && item.sqft >= this.state.min_sqft && item.sqft <= this.state.max_sqft && item.bedrooms <= this.state.bedrooms && item.bathrooms <= this.state.bathrooms
     })
     if(this.state.city != "All") {
       newData = newData.filter((item) => {
@@ -80,11 +82,30 @@ class App extends Component {
       return b.price - a.price
       })
     }
+    if(this.state.search != ''){
+      newData = newData.filter((item) => {
+        var city = item.city.toLowerCase()
+        var searchText = this.state.search.toLowerCase()
+        var n= city.match(searchText)
 
+        if(n != null) {
+          return true
+        }
+      })
+    }
+
+    if(this.state.search != ''){
+      newData = newData.filter((item) => {
+        var city = item.city.toLowerCase()
+        var searchText = this.state.search.toLowerCase()
+        var n = city.search(searchText)
+      })
+    }
     this.setState({
       filteredData: newData
     })
   }
+
   populateForms() {
     // city//
     var cities = this.state.listingsData.map((item) => {

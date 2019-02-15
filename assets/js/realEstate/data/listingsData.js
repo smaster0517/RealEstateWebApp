@@ -1,7 +1,7 @@
 var listingsData = [
   {
     address: '7654 Shoene Rd',
-    city: 'Portland',
+    city: 'HappyValley',
     state: 'OR',
     bedrooms: '1',
     price: '565,000',
@@ -18,7 +18,7 @@ var listingsData = [
 },
   {
     address: '4762 SW Floure Ave',
-    city: 'Portland',
+    city: 'Beaverton',
     state: 'OR',
     bedrooms: '2',
     price: '278,000',
@@ -35,7 +35,7 @@ var listingsData = [
   },
   {
     address: '2752 Krentz Place',
-    city: 'Portland',
+    city: 'Gresham',
     state: 'OR',
     bedrooms: '3',
     price: '464,000',
@@ -52,7 +52,7 @@ var listingsData = [
   },
   {
     address: '92659 Canby Ct.',
-    city: 'Portland',
+    city: 'Troutdale',
     state: 'OR',
     bedrooms: '4',
     price: '198,000',
@@ -69,7 +69,7 @@ var listingsData = [
   },
   {
     address: '4472 39th St.',
-    city: 'Portland',
+    city: 'Hillsboro',
     state: 'OR',
     bedrooms: '3',
     price: '385,000',
@@ -103,7 +103,7 @@ var listingsData = [
   },
   {
     address: '1976 NE Hollywood Ct.',
-    city: 'Portland',
+    city: 'Aloha',
     state: 'OR',
     bedrooms: '1',
     price: '249,000',
@@ -120,7 +120,7 @@ var listingsData = [
   },
   {
     address: '9888 SE Tibbets Circle',
-    city: 'Portland',
+    city: 'Lake_Oswego',
     state: 'OR',
     bedrooms: '2',
     price: '799,000',
@@ -137,7 +137,7 @@ var listingsData = [
   },
   {
     address: '4444 Lucky Drive',
-    city: 'Portland',
+    city: 'West_Linn',
     state: 'OR',
     bedrooms: '3',
     price: '489,900',
@@ -154,7 +154,7 @@ var listingsData = [
   },
   {
     address: '12700 S Hills Ave.',
-    city: 'Portland',
+    city: 'Oregon City',
     state: 'OR',
     bedrooms: '4',
     price: '398,000',
@@ -188,7 +188,7 @@ var listingsData = [
   },
   {
     address: '43021 Porter St.',
-    city: 'Portland',
+    city: 'Beaverton',
     state: 'OR',
     bedrooms: '2',
     price: '565,000',
