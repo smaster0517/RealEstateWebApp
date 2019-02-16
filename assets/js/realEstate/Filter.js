@@ -4,7 +4,7 @@ export default class Filter extends Component {
   constructor () {
     super()
     this.state = {
-      name: 'Alice'
+      name: 'Joe'
     }
     this.cities = this.cities.bind(this)
     this.homeStyles = this.homeStyles.bind(this)
@@ -105,18 +105,24 @@ baths(){
     </select>
     <div className="filters price">
       <span className="title">Price</span>
-      <input type="text" name="min_price" className="min_price" onChange={this.props.change} value={this.props.globalState.min_price}/>
-      <input type="text" name="max_price" className="max_price" onChange={this.props.change} value={this.props.globalState.max_price}/>
+      <input type="text" name="min_price" className="min_price" onChange={this.props.change}
+      value={this.props.globalState.min_price} />
+      <input type="text" name="max_price" className="max_price" onChange={this.props.change}
+      value={this.props.globalState.max_price} />
     </div>
     <div className="filters square_feet">
       <span className="title">Square Feet</span>
-      <input type="text" name="min_sqft" className="min_sqft" onChange={this.props.change}  value={this.props.globalState.max_sqft}/>
-      <input type="text" name="max_sqftt" className="max_sqft" onChange={this.props.change}  value={this.props.globalState.max_sqft}/>
+      <input type="text" name="min_sqft" className="min_sqft" onChange={this.props.change}
+      value={this.props.globalState.min_sqft}/>
+      <input type="text" name="max_sqft" className="max_sqft" onChange={this.props.change}
+      value={this.props.globalState.max_sqft}/>
     </div>
-    <div className="filters lot-size">
+    <div className="filters lot_size">
       <span className="title">Lot Size</span>
-      <input type="text" name="min_lot_size" className="min_lot_size" />
-      <input type="text" name="max_lot_size" className="max_lot_size" />
+      <input type="text" name="min_lot_size" className="min_lot_size" onChange={this.props.change}
+      value={this.props.globalState.min_lot_size}/>
+      <input type="text" name="max_lot_size" className="max_lot_size" onChange={this.props.change}
+      value={this.props.globalState.max_lot_size}/>
     </div>
     <div className="filters additionalAmenities" onChange={this.props.change}>
     <span className="title">
@@ -140,7 +146,7 @@ baths(){
       </label>
       <label htmlFor="additionalAmenities">
         <span>Fireplace</span>
-        <input name="fireplace"value="fireplace" type="checkbox" onChange={this.props.change}/>
+        <input name="fireplace" value="fireplace" type="checkbox" onChange={this.props.change}/>
       </label>
       <label htmlFor="additionalAmenities">
         <span>Hardwood Floors</span>

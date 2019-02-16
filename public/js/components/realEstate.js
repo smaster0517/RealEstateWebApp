@@ -646,8 +646,7 @@ var Listings = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'results' },
-            this.props.globalState.filteredData.length,
-            ' results found'
+            '300 results found'
           ),
           _react2.default.createElement(
             'div',
@@ -1027,18 +1026,6 @@ var App = function (_Component) {
           return b.price - a.price;
         });
       }
-      if (this.state.search != '') {
-        newData = newData.filter(function (item) {
-          var city = item.city.toLowerCase();
-          var searchText = _this3.state.search.toLowerCase();
-          var n = city.match(searchText);
-
-          if (n != null) {
-            return true;
-          }
-        });
-      }
-
       if (this.state.search != '') {
         newData = newData.filter(function (item) {
           var city = item.city.toLowerCase();

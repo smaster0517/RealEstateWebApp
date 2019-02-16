@@ -9,7 +9,7 @@ class App extends Component {
   constructor () {
     super()
     this.state = {
-      name: 'Alice',
+      name: 'Joe',
       listingsData,
       city: 'All',
       homeStyle: 'All',
@@ -62,7 +62,10 @@ class App extends Component {
 
   filteredData(){
     var newData = this.state.listingsData.filter((item) => {
-      return item.price >= this.state.min_price && item.price <= this.state.max_price && item.sqft >= this.state.min_sqft && item.sqft <= this.state.max_sqft && item.bedrooms <= this.state.bedrooms && item.bathrooms <= this.state.bathrooms
+      return item.price >= this.state.min_price && item.price
+      <= this.state.max_price && item.sqft >= this.state.min_sqft
+      && item.sqft <= this.state.max_sqft && item.bedrooms <=
+      this.state.bedrooms && item.bathrooms <= this.state.bathrooms
     })
     if(this.state.city != "All") {
       newData = newData.filter((item) => {

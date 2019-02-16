@@ -4,7 +4,7 @@ export default class Listings extends Component {
   constructor () {
     super()
     this.state = {
-      name: 'Alice'
+      name: 'Joe'
     }
     this.loopListings = this.loopListings.bind(this)
   }
@@ -49,7 +49,8 @@ export default class Listings extends Component {
             <div className="bottom-info">
               <span className="price">${listing.price}</span>
               <span className="location"><i className="fa fa-map-marker-alt" aria-hidden="true">
-              </i> {listing.city}, {listing.state}</span>
+              </i> {listing.city}, {listing.state}
+              </span>
             </div>
           </div>
         </div>)
@@ -77,8 +78,8 @@ export default class Listings extends Component {
     <section className="listings-results">
 
     {this.loopListings()}
-    </section>
 
+    </section>
 
     <section id="pagination">
       <ul className="pages">
